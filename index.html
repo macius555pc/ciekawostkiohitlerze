@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
     <meta name="color-scheme" content="light dark">
     <meta charset="UTF-8">
+    <title>Ciekawostki o Hitlerze</title>
 </head>
 <body>
 
@@ -33,7 +35,9 @@
     function pokazCiekawostke() {
         const ciekawostka = wylosujCiekawostke();
         const jsonOutput = JSON.stringify(ciekawostka, null, 4); // Formatowanie JSON
-        document.getElementById("json-output").innerText = jsonOutput;
+        
+        // Zamiast innerText, używamy textContent, aby zachować czysty format JSON
+        document.getElementById("json-output").textContent = jsonOutput;
     }
 
     // Losowanie i wyświetlanie ciekawostki od razu po załadowaniu strony
