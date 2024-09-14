@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta name="color-scheme" content="light dark">
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <pre id="json-data"></pre>
 
-<pre id="json-output">
-Ładuję ciekawostkę...
-</pre>
+    <script>
+        // Fakty o Adolfie Hitlerze
+        const data = {
+            "fakt": "Adolf Hitler urodził się 20 kwietnia 1889 roku w Braunau am Inn, w Austrii.",
+            "zrodlo": "Encyklopedia Britannica",
+            "numer": "1 z 400"
+        };
 
-<script>
-    // Tablica z ciekawostkami
-    const ciekawostki = [
-        { fakt: "Hitler urodził się 20 kwietnia 1889 roku w Braunau am Inn, Austro-Węgry.", zrodlo: "Biografia", numer: "1 z 100" },
-        { fakt: "Był wegetarianinem przez większość swojego życia.", zrodlo: "Źródła historyczne", numer: "2 z 100" },
-        { fakt: "Podczas I wojny światowej Hitler służył jako posłaniec w armii niemieckiej.", zrodlo: "Archiwa wojenne", numer: "3 z 100" },
-        { fakt: "Napisał książkę 'Mein Kampf' podczas pobytu w więzieniu.", zrodlo: "Mein Kampf", numer: "4 z 100" },
-        { fakt: "Był fanem filmów Walta Disneya, szczególnie podziwiał 'Królewnę Śnieżkę'.", zrodlo: "Biografia", numer: "5 z 100" },
-        { fakt: "Miał psa rasy owczarek niemiecki o imieniu Blondi.", zrodlo: "Źródła historyczne", numer: "6 z 100" },
-        { fakt: "Pod koniec życia Hitler cierpiał na chorobę Parkinsona.", zrodlo: "Archiwa medyczne", numer: "7 z 100" },
-        { fakt: "Wielu z jego najbliższych współpracowników próbowało go zabić.", zrodlo: "Dokumentacja historyczna", numer: "8 z 100" }
-        // Dodaj więcej ciekawostek aż do 100
-    ];
+        // Konwertowanie obiektu JavaScript na format JSON
+        const jsonString = JSON.stringify(data, null, 4);
 
-    // Funkcja losująca ciekawostkę
-    function wylosujCiekawostke() {
-        const randomIndex = Math.floor(Math.random() * ciekawostki.length);
-        return ciekawostki[randomIndex];
-    }
-
-    // Wyświetlanie losowej ciekawostki w formacie JSON
-    function pokazCiekawostke() {
-        const ciekawostka = wylosujCiekawostke();
-        const jsonOutput = JSON.stringify(ciekawostka, null, 4); // Formatowanie JSON
-        
-        // Zamiast innerText, używamy textContent, aby zachować czysty format JSON
-        document.getElementById("json-output").textContent = jsonOutput;
-    }
-
-    // Losowanie i wyświetlanie ciekawostki od razu po załadowaniu strony
-    window.onload = function() {
-        pokazCiekawostke();
-    };
-</script>
-
+        // Wstawianie JSON-a do elementu <pre>
+        document.getElementById('json-data').textContent = jsonString;
+    </script>
 </body>
 </html>
